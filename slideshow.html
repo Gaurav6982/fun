@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>SLIDESHOW</title>
+</head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style type="text/css">
+	*{
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+	}
+	.slide{
+		height: 600px;
+		width: 1200px;
+		margin-left: 5%;
+		margin-top: 2%;
+		border: 5px teal dashed;
+		transition: opacity 1s ease;
+			}
+	.intro{
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%,-50%);
+		font-size: 50px;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		transition: opacity 0.6s ease;
+	}
+	.intro button{
+		height: 50px;
+		width: 200px;
+		border-radius: 5px;
+		font-size: 20px;
+		background-color: teal;
+
+	}
+	.fadeout{
+		opacity: 0;
+		pointer-events: none;
+	}
+
+	@media screen and (max-width: 700px){
+		.slide{
+		height: 200px;
+		width: 400px;
+		margin-left: 2%;
+		margin-top: 35%;
+		transform: translate(-50%,-50%);
+		transform: rotateZ(90deg);
+		border: 5px teal dashed;
+		transition: opacity 1s ease;
+			}
+	.intro{
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%,-50%);
+		font-size: 5px;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		transition: opacity 0.6s ease;
+	}
+	.intro button{
+		height: 15px;
+		width: 50px;
+		border-radius: 3px;
+		font-size: 10px;
+		background-color: teal;
+
+	}
+	}
+	
+</style>
+<body>
+	<div class="intro">
+			<h1>SLIDESHOW!</h1>
+			<button id="PLAY">PLAY</button>
+	</div>
+	<div>
+<img name="slide" class="slide">
+</div>
+</body>
+<script type="text/javascript">
+	var i=0,time=1500,img=[];
+	img[0]="media/img/caspar1.jpg";
+	img[1]="media/img/caspar2.jpg";
+	img[2]="media/img/caspar3.jpg";
+	img[3]="media/img/caspar4.jpg";
+	img[4]="media/img/caspar5.jpg";
+	img[5]="media/img/caspar6.jpg";
+	img[6]="media/img/caspar7.jpg";
+	img[7]="media/img/caspar8.jpg";
+	
+	document.querySelector('.slide').classList.add('fadeout');
+	function changeimg(){
+		
+			document.slide.src=img[i];
+			if(i<img.length-1)
+			{
+				i++;
+			}
+			else{
+				i=0;
+			}
+		setTimeout("changeimg()",time);
+	}
+	function changefrm(){
+		document.querySelector('.slide').classList.remove('fadeout');
+		document.querySelector('.intro').classList.add('fadeout');
+		
+		changeimg();
+	};
+	document.querySelector('#PLAY').addEventListener('click',changefrm);
+
+</script>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MOVE</title>
+</head>
+<style type="text/css">
+	img{
+
+		animation-name: rotat;
+		animation-duration: 3s;
+		animation-iteration-count: infinite;
+
+	}
+	@keyframes rotat{
+			0%{
+				transform: rotateZ(0deg);
+			}
+			100%{
+				transform: rotateZ(360deg);
+			}
+		}
+		img:hover{
+			animation-play-state: paused;
+		}
+
+</style>
+<body>
+<img src="rock.png" alt="image" id="rot">
+</body>
+<!-- <script type="text/javascript">
+	var box=document.querySelector('#rot');
+
+	box.classList.add('a');
+
+	
+	
+	box.addEventListener("mouseover",function(){
+		var com=window.getComputedStyle(box);
+		var angle=com.getPropertyValue('rotateZ');
+		
+		box.style.rotateZ=angle;
+		box.classList.add('b');
+
+		
+
+	});
+	box.addEventListener("mouseout",function(){
+		var com=window.getComputedStyle(box);
+		var angle=com.getPropertyValue('rotateZ');
+		
+		box.style.rotateZ=angle;
+		box.style.add('a');
+
+	});
+
+</script> -->
+</html>

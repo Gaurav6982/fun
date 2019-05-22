@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ZOOM</title>
+</head>
+<style type="text/css">
+	.cont{
+		width: 300px;
+		height: 150px;
+		background-size: 300px 150px;
+		
+		background-image: url(http://placehold.it/1200x720);
+		transition: all 5s;
+		background-position: 50% 50%;
+	}
+	.b{
+		background-size: 1200px 720px !important;
+	}
+	.buttons{
+		display: flex;
+		justify-content: space-between;
+		width: 23%;
+	}
+</style>
+<body>
+	<div class="b">
+		<div class="cont"></div>
+		<div class="buttons">
+			<button class="zoom">ZOOM</button>
+			<button class="pause">PAUSE</button>
+			<button class="out">ZOOM OUT</button>
+			</div>
+	</div>
+
+</body>
+<script type="text/javascript">
+	var boxone=document.querySelector('.cont')
+	var boxback=window.getComputedStyle(boxone).getPropertyValue('background-size');
+	document.querySelector('.zoom').addEventListener('click',function(){
+		if(!boxone.classList.contains('b'))
+  {
+    boxone.classList.add('b');
+  } 
+	});
+
+	document.querySelector('.pause').addEventListener('click',function(){
+		var backs=window.getComputedStyle(boxone).getPropertyValue('background-size');
+		boxone.style.backgroundSize=backs;
+		boxone.classList.remove('b');
+	});
+	document.querySelector('.out').addEventListener('click',function(){
+		
+		
+		boxone.classList.remove('b');
+		boxone.style.backgroundSize=boxback;
+	});
+
+</script>
+</html>
